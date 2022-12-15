@@ -4,12 +4,10 @@ const map = L.map("map", {
 });
 
 // Load map tiles
-L.tileLayer("https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token={accessToken}", {
-  attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  minZoom: 2,
-  maxZoom: 19,
-  noWrap: true,
-  accessToken: "OymG7xAvEmOiH8eYl9kwsYpPimZs2Z8cYaW1vtKfrgfuUYYe91eb56Zv8ZgS96WY"
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    minZoom: 2,
+    maxZoom: 19,
 }).addTo(map);
 
 // Set zoom button to bottom right
