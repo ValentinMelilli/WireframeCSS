@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Fuel</title>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/7027930a78.js" crossorigin="anonymous"></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+      <div id="application" class="[&>*]:z-[10000] [&>*]:absolute">
+        <!-- Searchbar -->
+        <div id="searchBar" class="bg-white rounded-2xl m-4 flex flex-row items-center w-auto shadow-md">
+          <span id="menuButton" class="cursor-pointer flex-none p-4" onclick="openSidebar()"><i class="fa-solid fa-bars"></i></span>
+          <input id="searchInput" type="search" placeholder="Rechercher une ville..." class="outline-none flex-auto p-4">
+          <span id="searchButton" class="cursor-pointer flex-none p-4"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+
+        <!-- Darker -->
+        <div id="darker" class="hidden absolute inset-0 h-full w-full bg-black/75"></div>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="hidden absolute inset-0 h-full bg-white w-96 p-4">
+          <div class="flex flex-row items-center justify-between text-2xl font-bold">
+            <span>My Digital Fuel</span>
+            <span class="cursor-pointer" onclick="closeSidebar()"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+          <span class="block my-2 h-px w-full bg-slate-400"></span>
+          <div class="text-lg">
+            <a href="#" onclick="openModal('about')" class="flex flex-row items-center py-2"><i class="fa-regular fa-circle-question mr-2"></i>About</a>
+            <a href="#" onclick="openModal('legal')" class="flex flex-row items-center py-2"><i class="fa-solid fa-book mr-2"></i>Legal</a>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="hidden absolute bg-white rounded-2xl sm:w-11/12 lg:w-2/4 sm:h-5/6 lg:h-4/5 flex flex-col p-4 top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2">
+          <div class="flex flex-row text-xl">
+            <span id="modal-icon" class="flex-none"></span>
+            <span id="modal-title" class="flex-auto font-bold"></span>
+            <span class="cursor-pointer flex-none" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+          <span class="block my-2 h-px w-full bg-slate-400"></span>
+          <div id="modal-content" class="overflow-y-auto">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div id='map' class="absolute inset-0 h-full w-full"></div>
+    
+      <!-- Scripts -->
+      <script src="js/map.js"></script>
+      <script src="js/fuel_stations.js"></script>
+      <script src="js/content.js"></script>
+      <script src="js/script.js"></script>
+  </body>
+</html>
